@@ -4,7 +4,7 @@ This repository provides the recipe for the paper [Multilingual ASR for Turkic L
 
 ## Pre-trained models
 
-You can download the best performing model [here](link-to-be).
+You can download the best performing model [here](https://github.com/IS2AI/TurkicASR/blob/main/asr_train_asr_conformer_large_raw_cv_turkic_char_sp_valid.acc.ave.zip).
 
 ### Inference
 
