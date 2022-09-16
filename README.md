@@ -15,7 +15,7 @@ python recognize.py -f <path_to_your_wav>
 
 ## Datasets
 
-There are multiple datasets involved, including [KSC1](https://docs.google.com/forms/d/e/1FAIpQLSf_usCjxTvbH_2xhA6slH9FAfjrYVd4OHnr-CUcVVW3TEAscg/viewform), [TSC](path!!!), [USC](https://docs.google.com/forms/d/e/1FAIpQLSeWhxsVe0WlGSQ459sq6--pAqYyEWTI2K6X8UrF357GUvnDQA/viewform), and [Commonvoice](https://commonvoice.mozilla.org/en/datasets) for the following languages: Azerbaijani, Bashkir, Chuvash, Kazakh, Kyrgyz, Sakha, Turkish, Tatar, Uzbek, and Uyghur. To train the ASR model, please download all of them and specify the paths in `conf/lang.conf`.
+There are multiple datasets involved, including [KSC1](https://docs.google.com/forms/d/e/1FAIpQLSf_usCjxTvbH_2xhA6slH9FAfjrYVd4OHnr-CUcVVW3TEAscg/viewform), [TSC](https://forms.gle/xjsnC3uVmzRYuWBA8), [USC](https://docs.google.com/forms/d/e/1FAIpQLSeWhxsVe0WlGSQ459sq6--pAqYyEWTI2K6X8UrF357GUvnDQA/viewform), and [Commonvoice](https://commonvoice.mozilla.org/en/datasets) for the following languages: Azerbaijani, Bashkir, Chuvash, Kazakh, Kyrgyz, Sakha, Turkish, Tatar, Uzbek, and Uyghur. To train the ASR model, please download all of them and specify the paths in `conf/lang.conf`.
 
 
 ## Training
