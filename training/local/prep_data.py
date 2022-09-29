@@ -29,17 +29,23 @@ def get_duration(file_path):
                 duration = frames / float(rate)
     return duration if duration else 0
 
-def normalize_text(text):
+def normalize_text(text, chuvash=False):
     text = text.strip()
     text  = re.sub("[\(\{\[].*?[\)\}\]]", "", text) #remove (text*) and same for [], {}
     text = re.sub('[-—–]', '-', text) # normalize hyphen
     text = text.lower()
     text = " ".join(regex.findall('\p{alpha}+', text)) # for v1
+    if chuvash: 
+        ### fix some errors in chuvash commonvoice data
+        replace = {"ă":"ӑ", "ç":"ҫ", "ĕ":"ӗ", "ÿ":"ӳ", "ӱ":"ӳ"}
+        for x, y in replace.items():
+            text = text.replace(x, y)
+
     return text
 
 def prep_cv(filelist, lang):
     path = 'datasets/'+lang
-    
+    is_ch = True if lang=='cv' else False
     all_tsv = pd.read_csv(path + '/validated.tsv', delimiter='\t', quoting=csv.QUOTE_NONE)
     file2text = dict(zip(all_tsv.path, all_tsv.sentence))
     files = {}
@@ -50,7 +56,7 @@ def prep_cv(filelist, lang):
                 file = file+'.mp3'
                 audio_path = path+'/clips/'+ file
                 if os.path.exists(audio_path) and file in file2text:
-                    text = normalize_text(file2text[file])
+                    text = normalize_text(file2text[file], is_ch)
                     files[file] = (audio_path, text)
     return files ## key rec_id value (wav, text)
 
