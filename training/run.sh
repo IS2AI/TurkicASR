@@ -4,10 +4,10 @@
 set -e
 set -u
 set -o pipefail
-
-train_set=train
-valid_set=dev
-test_sets=dev
+lang=all_turkic
+train_set=train_${lang}
+valid_set=dev_${lang}
+test_sets=test_${lang}
 
 asr_config=conf/train_asr.yaml
 inference_config=conf/decode_asr.yaml
@@ -51,7 +51,7 @@ fi
 speed_perturb_factors="0.9 1.0 1.1"
 
 ./asr.sh                                               \
-    --lang all                                         \
+    --lang "${lang}"                                   \
     --audio_format wav                                 \
     --feats_type raw                                   \
     --token_type char                                  \
