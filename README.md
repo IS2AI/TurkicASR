@@ -25,7 +25,7 @@ Our code builds upon [ESPnet](https://github.com/espnet/espnet), and requires pr
 ## Citation
 ```
 @inproceedings{arxiv,
-  author={Kaisar Dauletbek, Saida Mussakhojayeva, Rustem Yeshpanov, and Huseyin Atakan Varol},
+  author={Saida Mussakhojayeva, Kaisar Dauletbek, Rustem Yeshpanov, and Huseyin Atakan Varol},
   title={{Multilingual ASR for Turkic Languages}},
   year=2022,
   booktitle={arxiv},
