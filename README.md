@@ -1,6 +1,6 @@
 # TurkicASR
 
-This repository provides the recipe for the paper [Multilingual ASR for Turkic Languages](link-to-be-after-acceptance).
+This repository provides the recipe for the paper [Multilingual Speech Recognition for Turkic Languages](link-to-be-after-acceptance).
 
 ## Pre-trained models
 
@@ -26,7 +26,7 @@ Our code builds upon [ESPnet](https://github.com/espnet/espnet), and requires pr
 ```
 @inproceedings{inproceedings,
   author={Saida Mussakhojayeva, Kaisar Dauletbek, Rustem Yeshpanov, and Huseyin Atakan Varol},
-  title={{Multilingual ASR for Turkic Languages}},
+  title={{Multilingual Speech Recognition for Turkic Languages}},
   year=2022,
 }
 ```
