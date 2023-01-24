@@ -4,17 +4,17 @@
 set -e
 set -u
 set -o pipefail
-lang=all_turkic
-train_set=train_${lang}
+lang=turkic 
+train_set=train_${lang} 
 valid_set=dev_${lang}
-test_sets=test_${lang}
+test_sets="test_az_lid test_ba_lid test_cv_lid test_kk_lid test_ky_lid test_sah_lid test_tr_lid test_tt_lid test_ug_lid test_uz_lid"
 
 asr_config=conf/train_asr.yaml
 inference_config=conf/decode_asr.yaml
 lm_config=conf/train_lm.yaml
 use_lm=true
 use_wordlm=false
-
+nlsyms_txt=conf/nonlyng.txt
 
 ### COPY ESPNET SCRIPTS ###
 if [ ! -f asr.sh ]
@@ -33,14 +33,6 @@ if [ ! -d scripts ]
 then
     ln -s ../../TEMPLATE/asr1/scripts .
 fi
-if [ ! -d steps ]
-then
-    ln -s ../../../tools/kaldi/egs/wsj/s5/steps .
-fi
-if [ ! -d utils ]
-then
-    ln -s ../../../tools/kaldi/egs/wsj/s5/utils .
-fi
 
 if [ ! -d datasets ]
 then
@@ -52,6 +44,7 @@ speed_perturb_factors="0.9 1.0 1.1"
 
 ./asr.sh                                               \
     --lang "${lang}"                                   \
+    --nlsyms_txt "${nlsyms_txt}"                       \
     --audio_format wav                                 \
     --feats_type raw                                   \
     --token_type char                                  \

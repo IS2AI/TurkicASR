@@ -39,21 +39,21 @@ model_conf:
 
 # minibatch related
 batch_type: numel
-batch_bins: 40000000
-num_workers: 16
+batch_bins: 20000000
+num_workers: 4
 
 # optimization related
 accum_grad: 4
 grad_clip: 5
-max_epoch: 50
+max_epoch: 60
 val_scheduler_criterion:
     - valid
     - acc
 best_model_criterion:
--   - valid
+-   - train
     - acc
     - max
-keep_nbest_models: 10
+keep_nbest_models: 5
 
 optim: adam
 optim_conf:
