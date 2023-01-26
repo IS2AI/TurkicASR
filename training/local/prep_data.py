@@ -57,7 +57,8 @@ def prep_cv(filelist, lang):
                 audio_path = path+'/clips/'+ file
                 if os.path.exists(audio_path) and file in file2text:
                     text = normalize_text(file2text[file], is_ch)
-                    files[file] = (audio_path, text)
+                    files[file] = ("["+lang+"]", audio_path, text)
+                else: print('err', audio_path)
     return files ## key rec_id value (wav, text)
 
 def get_text(path):
@@ -70,7 +71,8 @@ def read_meta(path):
 def prep_sc(path, eval_dir, lang):
     eval_dir = eval_dir.capitalize() if lang=='tsc' else eval_dir
     path = 'datasets/'+path.strip('.tar.gz') +'/' + eval_dir
-    files = {os.path.basename(x).replace('.wav', ''):(x, get_text(x.replace('.wav','.txt'))) for x in glob.glob(path + '/*.wav')}
+    lid = '[tr]' if lang =='tsc' else '[uz]'
+    files = {os.path.basename(x).replace('.wav', ''):(lid, x, get_text(x.replace('.wav','.txt'))) for x in glob.glob(path + '/*.wav')}
     return files
 
 def prep_ksc(path, eval_dir):
@@ -81,7 +83,7 @@ def prep_ksc(path, eval_dir):
     for rec_id in meta:
         file_path = os.path.join(path, 'Audios', rec_id) + '.wav'
         text = get_text(os.path.join(path, 'Transcriptions', rec_id) + '.txt')
-        files[rec_id] = (file_path, text)
+        files[rec_id] = ('[kk]', file_path, text)
     return files
 
 def write_dir(files, eval_dir, formatting, lib, lang):
@@ -96,9 +98,9 @@ def write_dir(files, eval_dir, formatting, lib, lang):
     open(path_root + '/spk2utt', 'w', encoding="utf-8") as f3, \
     open(path_root + '/wav.scp', 'w', encoding="utf-8") as f4:    
         for rec_id in rec_ids:
-            audio_path, text = files[rec_id]
+            lid, audio_path, text = files[rec_id]
             rec_id = lang + '_' + rec_id
-            f1.write(rec_id + ' ' + text + '\n')
+            f1.write(rec_id + ' ' + lid + ' ' + text + '\n')
             f2.write(rec_id + ' ' + rec_id + '\n')
             f3.write(rec_id + ' ' + rec_id + '\n')
             f4.write(rec_id + lib + audio_path + ' ' + formatting +  '\n')
@@ -109,7 +111,7 @@ def main():
     path = args.path
 
     for x in ['train', 'dev', 'test']:
-        eval_dir = x + '_' + lang
+        eval_dir = x + '_lid_' + lang
         formatting = '-r 16000 -c 1 -b 16 -t wav - downsample |'
         lib = ' sox '
         if lang=='ksc':
@@ -120,7 +122,7 @@ def main():
             files = prep_sc(path, x, lang)
         else:
             ### Commonvoice
-            filelist = "conf/filelists/"+eval_dir + ".txt"
+            filelist = "conf/filelists/"+eval_dir.replace('_lid', '') + ".txt"
             files = prep_cv(filelist, lang)
             formatting='-f wav -ar 16000 -ab 16 -ac 1 - |'
             lib = ' ffmpeg -i '

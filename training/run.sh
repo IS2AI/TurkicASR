@@ -59,4 +59,5 @@ speed_perturb_factors="0.9 1.0 1.1"
     --asr_speech_fold_length 512 \
     --asr_text_fold_length 150 \
     --lm_fold_length 150 \
+    --local_data_opts "--eval_suffix ${lang}" \
     --lm_train_text "data/${train_set}/text" "$@"

@@ -1,5 +1,12 @@
 #!/usr/bin/env python
-import os, glob, pdb
+import os, glob, pdb, argparse, sys
+
+def get_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--suffix', '-s', type=str, required=True)
+    print(' '.join(sys.argv))
+    args = parser.parse_args()
+    return args
 
 def get_dicts(lines):
     rec2text = {}
@@ -27,14 +34,16 @@ def write_dir(texts, wavs, eval_dir):
                 f4.write(rec_id + ' ' + audio_info + '\n')
 
 if __name__ == "__main__":
+    args = get_args()
+    suffix = args.suffix
     for x in ['train', 'dev', 'test']:
-        dirs = glob.glob('data/'+x+'_*')
+        dirs = glob.glob('data/'+x+'_lid_*')
         rec2text, rec2wav = {}, {}
         for lang in dirs:
             with open(lang + '/text', 'r', encoding='utf-8') as f1,\
             open(lang+'/wav.scp', encoding='utf-8') as f2:
                 rec2text.update(get_dicts(f1.readlines()))
                 rec2wav.update(get_dicts(f2.readlines()))
-        write_dir(rec2text, rec2wav, x)
+        write_dir(rec2text, rec2wav, x  + "_" + suffix)
             
     
