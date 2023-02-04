@@ -29,9 +29,15 @@ Our code builds upon [ESPnet](https://github.com/espnet/espnet), and requires pr
 
 ## Citation
 ```
-@inproceedings{inproceedings,
-  author={Saida Mussakhojayeva, Kaisar Dauletbek, Rustem Yeshpanov, and Huseyin Atakan Varol},
-  title={{Multilingual Speech Recognition for Turkic Languages}},
-  year=2023,
+@Article{info14020074,
+AUTHOR = {Mussakhojayeva, Saida and Dauletbek, Kaisar and Yeshpanov, Rustem and Varol, Huseyin Atakan},
+TITLE = {Multilingual Speech Recognition for Turkic Languages},
+JOURNAL = {Information},
+VOLUME = {14},
+YEAR = {2023},
+NUMBER = {2},
+ARTICLE-NUMBER = {74},
+URL = {https://www.mdpi.com/2078-2489/14/2/74},
+ISSN = {2078-2489}
 }
 ```
