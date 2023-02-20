@@ -4,12 +4,12 @@ This repository provides the recipe for the paper [Multilingual Speech Recogniti
 
 ## Pre-trained models
 
-You can download the best performing model [here](https://github.com/IS2AI/TurkicASR/blob/main/asr_train_asr_conformer_large_raw_cv_turkic_char_sp_valid.acc.ave.zip).
+You can download the best performing models below. 
 
 |model|
 |---|
-|[turkic_languages_model.zip](https://github.com/IS2AI/TurkicASR/blob/main/turkic_languages_model.zip)|
-|[all_languages_model.zip](https://github.com/IS2AI/TurkicASR/blob/main/all_languages_model.zip)|
+|[turkic_languages_model.zip](drive-link)|
+|[all_languages_model.zip](drive-link)|
 
 ### Inference
 
