@@ -9,7 +9,7 @@ You can download the best performing models below.
 |model|
 |---|
 |[turkic_languages_model.zip](drive-link)|
-|[all_languages_model.zip](drive-link)|
+|[all_languages_model.zip](https://drive.google.com/file/d/15Dc4Uwzqqrw3jkE5-zrgVAyNddGS7onw/view?usp=sharing)|
 
 ### Inference
 
