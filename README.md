@@ -8,7 +8,7 @@ You can download the best performing models below.
 
 |model|
 |---|
-|[turkic_languages_model.zip](drive-link)|
+|[turkic_languages_model.zip](https://drive.google.com/file/d/1GtK-OrH3ZRYz2Zc8vf-xndp7R9dic4rV/view?usp=sharing)|
 |[all_languages_model.zip](https://drive.google.com/file/d/15Dc4Uwzqqrw3jkE5-zrgVAyNddGS7onw/view?usp=sharing)|
 
 ### Inference
