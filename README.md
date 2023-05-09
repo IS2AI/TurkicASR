@@ -1,6 +1,6 @@
 # TurkicASR
 
-This repository provides the recipe for the paper [Multilingual Speech Recognition for Turkic Languages](link-to-be-after-acceptance).
+This repository provides the recipe for the paper [Multilingual Speech Recognition for Turkic Languages](https://www.mdpi.com/2078-2489/14/2/74).
 
 ## Pre-trained models
 
