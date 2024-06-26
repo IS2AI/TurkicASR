@@ -1,14 +1,14 @@
 from espnet2.bin.asr_inference import Speech2Text
 import argparse
 import numpy as np
-import wave, time, os
+import wave, time, os, sys
 
 def get_args():
     parser = argparse.ArgumentParser(description="", formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("--wav_path", help="path to wav audio", required=True)
     print(' '.join(sys.argv))
     args = parser.parse_args()
-    return 
+    return args
 
 def recognize(wavfile):
     timer = time.perf_counter()
